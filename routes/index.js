@@ -5,12 +5,7 @@ const router = Router();
 
 router.use(require("./auth"));
 
+router.use(require("./bibleRoute"));
 
 
-// pipe all other requests through the route modules
-// router.use(require('./authRoute'));
-// router.use(require('./productRoute'));
-// router.use(require('./orderRoute'));
-// router.use(require('./userRoute'));
-// router.use(require('./paymentRoute'));
 module.exports = router;
