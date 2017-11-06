@@ -14,10 +14,13 @@ const getBooks = () => {
 
 const getVersions = () => {
   return new Promise((resolve, reject) => {
-    db.all(`SELECT version from bible_version_key`, (err, data) => {
-      if (err) return reject(err);
-      resolve(data);
-    });
+    db.all(
+      `SELECT version from bible_version_key`,
+      (err, data) => {
+        if (err) return reject(err);
+        resolve(data);
+      }
+    );
   });
 };
 
@@ -84,6 +87,15 @@ const getbbeBible = () => {
   });
 };
 
+// const getVerse = () => {
+//   return new Promise((resolve, reject) => {
+//     db.all(`SELECT verse FROM bibles`, (err, data) => {
+//       if (err) return reject(err);
+//       resolve(data);
+//     });
+//   });
+// };
+
 module.exports = {
   getkjvBible,
   getBooks,
@@ -93,5 +105,6 @@ module.exports = {
   getwebBible,
   getwbtBible,
   getdarbyBible,
-  getbbeBible
+  getbbeBible,
+  getVerse
 };

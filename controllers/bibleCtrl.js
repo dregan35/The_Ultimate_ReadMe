@@ -12,6 +12,14 @@ const {
   getbbeBible
 } = require("../sqlModels/bible");
 
+// module.exports.getVerses = (req, res, next) => {
+//   getVerse()
+//     .then(data => {
+//       res.status(200).json(data);
+//     })
+//     .catch(err => next(err));
+// };
+
 module.exports.getBible = (req, res, next) => {
   getkjvBible()
     .then(data => {
@@ -83,3 +91,7 @@ module.exports.getVersion = (req, res, next) => {
     })
     .catch(err => next(err));
 };
+
+// module.exports.getChapter = (req. res, next) => {
+//   getChapters()
+// }
