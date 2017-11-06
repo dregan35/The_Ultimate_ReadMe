@@ -9,7 +9,8 @@ const {
   getwebBible,
   getwbtBible,
   getdarbyBible,
-  getbbeBible
+  getbbeBible,
+  getChapters
 } = require("../sqlModels/bible");
 
 // module.exports.getVerses = (req, res, next) => {
@@ -87,6 +88,17 @@ module.exports.getBook = (req, res, next) => {
 module.exports.getVersion = (req, res, next) => {
   getVersions()
     .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(err => next(err));
+};
+
+module.exports.getChapter = (req, res, next) => {
+ let book = req.params.bookid
+ console.log("bookinctrl", book);
+  getChapters(book)
+    .then(data => {
+      console.log("databible", data);
       res.status(200).json(data);
     })
     .catch(err => next(err));

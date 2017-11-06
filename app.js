@@ -16,7 +16,7 @@ app.set("models", require("./models")); //pulls in models/index.js by default. I
 // And when you need to require a class of the model in a controller, use this insise a middleware function rather than a direct import:
 // const { Computer } = req.app.get('models');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 

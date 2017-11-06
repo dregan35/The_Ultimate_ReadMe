@@ -12,8 +12,8 @@ const {
   getBible4,
   getBible5,
   getBible6,
-  getVerses
-  // getChapters
+  getVerses,
+  getChapter
 } = require("../controllers/bibleCtrl");
 
 router.get("/bible", getBible);
@@ -27,6 +27,6 @@ router.get("/bible6", getBible6);
 router.get("/book", getBook);
 router.get("/version", getVersion);
 // router.get("/verse", getVerses);
-// router.get("/chapters", getChapters);
+router.get("/chapter/:bookid", getChapter);
 
 module.exports = router;
