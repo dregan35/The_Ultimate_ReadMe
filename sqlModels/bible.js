@@ -14,7 +14,7 @@ const getBooks = () => {
 
 const getVersions = () => {
   return new Promise((resolve, reject) => {
-    db.all(`SELECT version from bible_version_key`, (err, data) => {
+    db.all(`SELECT * from bible_version_key`, (err, data) => {
       if (err) return reject(err);
       resolve(data);
     });
@@ -97,6 +97,19 @@ const getChapters = (book) => {
   });
 };
 
+const getTexts = (book, version) => {
+  console.log("bookVER", book, version);
+  return new Promise((resolve, reject) => {
+    db.all(
+      `SELECT t, c, v from ${version} where b = ${book}`,
+      (err, data) => {
+        if (err) return reject(err);
+        resolve(data);
+      }
+    );
+  });
+};
+
 module.exports = {
   getkjvBible,
   getBooks,
@@ -107,5 +120,6 @@ module.exports = {
   getwbtBible,
   getdarbyBible,
   getbbeBible,
-  getChapters
+  getChapters,
+  getTexts
 };
