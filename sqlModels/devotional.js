@@ -6,8 +6,13 @@ const db = new sqlite3.Database("./data/bible-sqlite.db");
 const postDevotionals = (devotional, username) => {
   console.log("user2", username);
   return new Promise((resolve, reject) => {
-    db.run(`UPDATE Users SET journal = 
-      '${devotional.text}' WHERE username = '${username}'`),
+    db.run(`INSERT INTO Journals VALUES (
+      NULL,
+      '${devotional.text}',
+      '${username}'
+    
+      )
+      `),
       (err, data) => {
         console.log("data", data);
         if (err) return reject(err);

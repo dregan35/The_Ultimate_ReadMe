@@ -5,12 +5,13 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     journal: DataTypes.TEXT
 
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  //   User.associate= (models) => {
+  //   User.hasMany(models.Journal, {
+    
+  //   });
+      
+    
+  // });
   return User;
 };
