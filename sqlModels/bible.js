@@ -85,7 +85,6 @@ const getbbeBible = () => {
 };
 
 const getChapters = (book) => {
-  console.log("book", book);
   return new Promise((resolve, reject) => {
     db.all(
       `SELECT DISTINCT c FROM t_asv where b = ${book}`,
@@ -98,7 +97,6 @@ const getChapters = (book) => {
 };
 
 const getTexts = (book, version) => {
-  console.log("bookVER", book, version);
   return new Promise((resolve, reject) => {
     db.all(
       `SELECT t, c, v from ${version} where b = ${book}`,

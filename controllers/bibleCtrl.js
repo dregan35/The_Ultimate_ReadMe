@@ -14,14 +14,6 @@ const {
   getTexts
 } = require("../sqlModels/bible");
 
-// module.exports.getVerses = (req, res, next) => {
-//   getVerse()
-//     .then(data => {
-//       res.status(200).json(data);
-//     })
-//     .catch(err => next(err));
-// };
-
 module.exports.getBible = (req, res, next) => {
   getkjvBible()
     .then(data => {
@@ -96,10 +88,8 @@ module.exports.getVersion = (req, res, next) => {
 
 module.exports.getChapter = (req, res, next) => {
   let book = req.params.bookid;
-  console.log("bookinctrl", book);
   getChapters(book)
     .then(data => {
-      console.log("databible", data);
       res.status(200).json(data);
     })
     .catch(err => next(err));
@@ -108,15 +98,9 @@ module.exports.getChapter = (req, res, next) => {
 module.exports.getText = (req, res, next) => {
   let book = req.query.book;
   let version = req.query.version;
-  console.log("textinctrl", req.query.version);
   getTexts(book, version)
     .then(data => {
-      console.log("databible", data);
       res.status(200).json(data);
     })
     .catch(err => next(err));
 };
-
-// module.exports.getChapter = (req. res, next) => {
-//   getChapters()
-// }
